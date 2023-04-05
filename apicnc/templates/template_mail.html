@@ -1,0 +1,1112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <title>CNC Laboratorio Clínico</title>
+    <style>
+      .container-pacient {
+        height: 20.9330375em;
+        width: 67.5em;
+        margin-left: -4em;
+        padding-top: 107.91px;
+        background-color: hsl(33 98% 52% / .1);
+        border-radius: 0 0 90px 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0px 7px 7px hsl(0 0% 0% / .1);
+      }
+      .container-pacient h2 {
+        --c: #FD910A;
+        --fs: 4.5em;
+      }
+      .container-pacient .container-pacient-stats {
+        background-color: #00AA9B;
+        border-radius: 0 0 200px 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        width: 44.26421875em;
+        height: 2.9375em;
+      }
+      .container-pacient .container-pacient-stats span {
+        font-size: 1.390625em;
+        color: #fff;
+        --fw: 600;
+      }
+      .article-medic {
+        --margin: 40px;
+        width:67.5em;
+        margin-left: -4em;
+        display: flex;
+        gap: 60px;
+        padding-block: var(--margin);
+        padding-inline: calc(4em + var(--margin) / 2);
+      }
+      .article-medic:nth-child(2n - 1) {
+        background-color: hsl(33 98% 52% / .05);
+      }
+      .measurer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .measurer .container-measurer {
+        --width: 13.02501875em;
+        width: var(--width);
+        height: 6.51739375em;
+        position: relative;
+      }
+      .measurer .container-measurer svg {
+        --sum: 150px;
+        stroke-width: 76;
+        fill: none;
+        filter: drop-shadow(0 -4px 6px hsl(0 0% 0% / .6));
+        width: calc(var(--width) + 150px);
+        transform: rotateX(180deg) translate(-75, -12px);
+      }
+      .measurer .container-measurer svg #first {
+        stroke: var(--color);
+        stroke-dasharray: 470, 940;
+      }
+      .measurer .container-measurer svg #middle {
+        stroke: var(--color);
+        stroke-dasharray: var(--range, 470), 940;
+      }
+      .measurer .container-measurer svg #last {
+        stroke: var(--color);
+        stroke-dasharray: var(--range, 470), 940;
+      }
+      .measurer .container-measurer img[alt="arrow-measurer"] {
+        width: 1.3em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: rotate(var(--rotation, 0deg));
+      }
+      
+      .measurer > span {
+        position: relative;
+        --c: #FD910A;
+        --fw: bold;
+        font-size: 3.29125em;
+        width: max-content;
+      }
+      .measurer > span span {
+        position: absolute;
+        bottom: 5px;
+        right: -48px;
+        font-size: 16.27px;
+        --c: #FD910A;
+        --fw: bold;
+      }
+      
+      .measurer .container-stats {
+        width: 100%;
+        padding: 7px 10px;
+        background-color: #00AA9B;
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .measurer .container-stats span {
+        --c: #fff;
+        font-size: .7em;
+      }
+      .measurer .container-stats > span {
+        --fw: bold;
+        width: 80px;
+      }
+      .measurer .container-stats .divisor {
+        width: 1px;
+        height: 100%;
+        background-color: #fff;
+      }
+      .measurer .container-stats div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .measurer .container-stats div span {
+        --fw: 600;
+      }
+      
+      .measurer--description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .measurer--description .container-text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .measurer--description .container-text h3 {
+        --fs: 1.5em;
+        --c: #FD910A;
+        --fw: bold;
+      }
+      .measurer--description .container-text p {
+        --fs: .95em;
+      }
+      .measurer--description .container-text p + p {
+        margin-top: 10px;
+      }
+      .measurer--description blockquote {
+        width: 120%;
+        background-color: #00AA9B;
+        border-radius: 10px 0 0 10px;
+        padding: 10px;
+      }
+      .measurer--description blockquote span {
+        --fs: .9em;
+        --fw: 600;
+        --c: #fff;
+      }
+      .measurer--description blockquote span:first-child {
+        text-decoration: underline;
+      }
+      .measurer--description blockquote span::first-letter {
+        text-transform: uppercase;
+      }
+      .note {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .note h3 {
+        --fs: 1.1875em;
+        --fw: bold;
+        --c: #FD910A;
+      }
+      .note ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .note ul li {
+        list-style: decimal;
+        list-style-position: inside;
+        font-size: 1em;
+        --fw: 600;
+      }
+      .article-heart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding-block: 30px;
+      }
+      .article-heart h3 {
+        --c: #FD910A;
+        --fs: 1.71875em;
+        --fw: bold;
+        position: relative;
+        padding-bottom: 10px;
+        width: max-content;
+      }
+      .article-heart h3::after {
+        --sum: 20px;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left:20px * -.5;
+        right: 0;
+        margin: auto;
+        background-color: #FD910A;
+        width: calc(100% +  20px);
+        height: 3px;
+      }
+      .article-heart .container-heart {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+      }
+      .article-heart .container-heart .heart {
+        width: 12.36888125em;
+        height: 12.89728125em;
+        margin-bottom: 20px;
+      }
+      .article-heart .container-heart .column {
+        --h-arrow: 1.80005em;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .article-heart .container-heart img[alt="arrow-heart"] {
+        --distance: 70px;
+        width: 14.79064375em;
+        height: var(--h-arrow);
+        position: absolute;
+      }
+      .article-heart .container-heart .column p {
+        --fs: 16.5px;
+        --fw: normal;
+      }
+      .article-heart .container-heart .column p.focus {
+        --fw: bold;
+        --c: #02AA9B;
+      }
+      
+      .article-heart .container-heart .column:first-child {
+        padding-bottom: calc(var(--h-arrow) + 10px);
+      }
+      .article-heart .container-heart .column:first-child img[alt="arrow-heart"] {
+        bottom: 0;
+        right: -70px;
+      }
+      .article-heart .container-heart .heart + .column {
+        padding-top: calc(var(--h-arrow) + 10px);
+      }
+      .article-heart .container-heart .heart + .column img[alt="arrow-heart"] {
+        top: 0;
+        left: -70px;
+        transform: rotate(180deg);
+      }
+      
+      #front-page {
+        width:67.5em;
+        height: 87.14285625em;
+        margin-inline: auto;
+        padding-inline: 4em;
+        position: relative;
+        background: var(--clr-gradient);
+        overflow: hidden;
+      }
+      #front-page--header {
+        --gap: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto 4em;
+        display: flex;
+        align-items: center;
+        gap: var(--gap);
+        padding-block: 25px;
+      }
+      #front-page--header .container-icons {
+        display: flex;
+        gap: var(--gap);
+      }
+      #front-page--header .container-icons a img {
+        width: 2.6em;
+        height: 2.6em;
+      }
+      #front-page--content {
+        padding-top: 88.66px;
+      }
+      #front-page--content .container-head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: min-content;
+        margin-inline: auto;
+        gap: 10px;
+      }
+      #front-page--content .container-head img {
+        width: 28.98971875em;
+      }
+      #front-page--content .container-head button {
+        width: calc(100% + 60px);
+        height: 91px;
+        background-color: #FD910A;
+        color: #fff;
+        text-shadow: 4px 4px 4.5px hsl(0 0% 0% / .7);
+        border: none;
+        border-radius: 60px;
+        font-size: 3.3125em;
+      }
+      #front-page--content > img {
+        --sum: 50px;
+        width: calc(67.5em + 50px);
+        margin-left: calc(-2em - 50px);
+      }
+      #front-page--footer {
+        --margin: 30px;
+        height: 16em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #018271;
+        padding-block: var(--margin);
+        padding-inline: calc(4em + var(--margin));
+      }
+      #front-page--footer ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 100px;
+        row-gap: 10px;
+      }
+      #front-page--footer ul li {
+        color: #fff;
+      }
+      #front-page--footer ul li div {
+        display: flex;
+        flex-direction: column;
+      }
+      #front-page--footer ul li div span {
+        color: #fff;
+        font-size: 15.21px;
+      }
+      #front-page--footer ul li div span + span {
+        margin-top: 10px;
+      }
+      #page-1 {
+        width: 67.5em;
+        height: 87.14285625em;
+        margin-inline: auto;
+        padding-inline: 4em;
+        position: relative;
+        overflow: hidden;
+      }
+      #page-1--header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto 4em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 25px;
+      }
+      #page-1--header img {
+        width: 9.4415625em;
+      }
+      #page-1--content {
+        display: flex;
+        flex-direction: column;
+      }
+      #page-1--footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 21.8502px;
+        background-color: #00AA9B;
+      }
+      #page-2 {
+        width: 67.5em;
+        height: 87.14285625em;
+        margin-inline: auto;
+        padding-inline: 4em;
+        position: relative;
+        overflow: hidden;
+      }
+      #page-2--header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto 4em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 25px;
+      }
+      #page-2--header img {
+        width: 9.4415625em;
+      }
+      #page-2--content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 107.91px;
+      }
+      #page-2--content .article-medic:first-of-type {
+        position: relative;
+      }
+      #page-2--content .article-medic:first-of-type::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #FD910A;
+        height: 1px;
+        width: calc(100% - 8em );
+      }
+      #page-2--content .article-medic:last-of-type {
+        position: relative;
+      }
+      #page-2--content .article-medic:last-of-type:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #FD910A;
+        height: 1px;
+        width: calc(100% - 8em);
+      }
+      #page-2--footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 21.8502px;
+        background-color: #00AA9B;
+      }
+      :root {
+        --primary: #00AA9B;
+        --secondary: ;
+        --accent: #FD910A;
+        --active: #00AA9B;
+        --error: #ff4081;
+        --warning: #FFC260;
+        --success: #3CD4A0;
+        --clr-gradient: radial-gradient(#4EB5AA 0, #018271 100%);
+        --c: #000;
+        --clr-hover: hsl(288 90% 10%);
+        --font1: 'OpenSans', sans-serif;
+        --fw: initial;
+        --resizer: clamp(12px, 1vw, 16px);
+        --resizer-mobile: clamp(10px, 1.5vw, 12px);
+        --parent: 1600px;
+        --subparent: 1900px;
+        --margin-global: 4em;
+        --parent: 1600px;
+        --subparent: 1900px;
+        --h-header: 100px;
+        --scroll-size: 1em;
+        --w-sections: 67.5em;
+        --h-sections: 87.14285625em;
+        --sombra-filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.3));
+        --sombra-card: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        --sombra-btn: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        --ease-return: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+      
+      @media (max-width: 880px) {
+        :root {
+          --margin-global: clamp(1em, 5vw, 4em)
+        }
+      }
+      @font-face {
+        font-family: "OpenSans";
+        src: url(../fonts/OpenSans-Regular.ttf) format('truetype');
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: "OpenSans";
+        src: url(../fonts/OpenSans-Semibold.ttf) format('truetype');
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "OpenSans";
+        src: url(../fonts/OpenSans-Bold.ttf) format('truetype');
+        font-weight: bold;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      
+      body {
+        font-size: 16px;
+        font-family: 'OpenSans', sans-serif;
+        overflow-x: hidden;
+      }
+      
+      ::-webkit-scrollbar {
+        width: calc(1em - 2px);
+        height: calc(1em - 2px);
+        background: #00AA9B;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #FD910A;
+      }
+      body::-webkit-scrollbar {
+        width: 1em;
+        height: 1em;
+      }
+      
+      :is(span, p, a, h1, h2, h3, h4, h5, h6, button, label, ul, img, button i, div i, textarea, input, th, td):not(.not_clr, .not) {
+        color: var(--c);
+        -webkit-text-stroke: var(--stroke, initial);
+        -moz-text-stroke: var(--stroke, initial);
+        -ms-text-stroke: var(--stroke, initial);
+        -o-text-stroke: var(--stroke, initial);
+      }
+      * {caret-color: var(--caret, #fff) !important}
+      :-webkit-autofill {
+        -webkit-text-fill-color: #00AA9B;
+        box-shadow: 0 0 0px 1000px #000 inset;
+      }
+      :is(span, p, a, h1, h2, h3, h4, h5, h6, button, label, ul, img, button i, div i, textarea, input, th, td):not(.not_typography, .not) {
+        font-weight: var(--fw) !important;
+      }
+      button:not(.not_typography, .not)::first-letter,
+      button:not(.not_typography, .not) ::first-letter {
+        text-transform: uppercase
+      }
+      * {font-family: inherit}
+      :is(p, a, span, h1, h2, h3, h4, h5, h6):not(.not_typography, .not) {line-height: 1}
+      h1:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 5em));
+        letter-spacing: var(--ls, bold);
+      }
+      h2:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 4em));
+        letter-spacing: var(--ls, bold);
+      }
+      h3:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 1.8em));
+        letter-spacing: var(--ls, normal);
+      }
+      h4:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 1.5em));
+        letter-spacing: var(--ls, bold);
+      }
+      h5:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 1.25em));
+        letter-spacing: var(--ls, bold);
+      }
+      h6:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400);
+        font-size: var(--fs, max(16px, 1em));
+        letter-spacing: var(--ls, bold);
+      }
+      p:not(.not_typography, .not) {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400) !important;
+        font-size: var(--fs, max(16px, 1em));
+        line-height: 1.1;
+      }
+      a:not(.not_typography, .not) {
+        text-decoration: none;
+        font-family: 'OpenSans', sans-serif;
+        font-weight: var(--fw, 400) !important;
+        font-size: var(--fs, max(13px, 1em)) !important;
+      }
+      .hspan {
+        font-size: var(--fs, 16px) !important;
+        text-decoration: var(--under, initial);
+        letter-spacing: var(--ls, normal);
+      }
+      
+      .hover_line {
+        position: relative;
+      }
+      .hover_line::before {
+        content: "";
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        margin: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: #00AA9B !important;
+        opacity: 0 !important;
+        border-radius: 50px !important;
+        transform: scaleX(0.2) !important;
+        transform-origin: left !important;
+        transition: 250ms var(--ease-return) !important;
+      }
+      .hover_line:is(:hover, :focus):before {
+        opacity: 0.2 !important;
+        transform: scaleX(1) !important;
+      }
+      
+      .inv {
+        filter: invert(100%);
+      }
+      
+      .card {
+        --w: initial;
+        --h: initial;
+        --x: 0;
+        --y: 0;
+        --blur: 0;
+        --size: 4px;
+        --p: 2em;
+        --rotate: 0;
+        --br: 1px;
+        --bs: var(--x) var(--y) var(--blur) var(--size) var(--bg-back);
+        --bg-front: #00AA9B;
+        --bg-back: var(--secondary);
+      
+        isolation: isolate;
+        position: relative;
+        padding: var(--p);
+        width: var(--w);
+        height: var(--h);
+        border-radius: var(--br);
+      }
+      .card:not(.not_pseudo):before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--bg-back);
+        transform: rotate(calc(var(--rotate) * 1deg));
+        box-shadow: var(--bs);
+        z-index: -1;
+        border-radius: inherit;
+      }
+      .card:not(.not_pseudo):after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--bg-front);
+        z-index: -1;
+        border-radius: inherit;
+      }
+      
+      .btn {
+        --w: initial;
+        --h: 40px;
+        --p: 0 1em;
+        --bg: #FD910A;
+        --bs: 1px 1px 4px 1px rgba(0, 0, 0, .2);
+        --c: var(--secondary);
+        --fw: 600;
+        --fs: 1em;
+        --b: none;
+      
+        background-color: var(--bg);
+        box-shadow: var(--bs);
+        border: var(--b);
+        color: var(--c);
+        font-size: var(--fs);
+        font-weight: var(--fw);
+        padding: var(--p);
+        width: var(--w);
+        height: var(--h);
+      }
+      
+      .light {font-weight: lighter !important}
+      .normal {font-weight: normal !important}
+      .bold {font-weight: bold !important}
+      .bolder {font-weight: bolder !important}
+      .tcap {text-transform: capitalize}
+      .tup {text-transform: uppercase}
+      .tlow {text-transform: lowercase}
+      .tcenter {text-align: center}
+      
+      .align {margin-inline: auto}
+      .alignl {margin-right: auto}
+      .alignr {margin-left: auto}
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .divcol {
+        display: flex;
+        flex-direction: column;
+      }
+      .divcol_inv {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .divrow {
+        display: flex;
+        flex-direction: row;
+      }
+      .divrow_reverse {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      
+      @media (max-width: 880px) {
+        .d_nonemobile {display: none !important}
+      }
+      </style>
+  </head>
+
+  <body id="es">
+    <section id="front-page">
+      <div id="front-page--content">
+        <div class="container-head">
+          <img src="{% static 'images/logos/logotipo.svg' %}" alt="logotipo">
+          <button disabled>
+            RESULTADOS
+          </button>
+        </div>
+
+        <img src="{% static 'images/features/front-page/bg-front-page.png' %}">
+      </div>
+
+      <div id="front-page--footer">
+        <ul>
+          <li>
+            <div>
+              <span>CNC La Viña: PB. Centro Comercial Concepto La Viña.  (A nivel de calle).</span>
+              <span>Teléfonos: 0424-407.95.14 / 0241-824.73.77</span>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <span>CNC La Granja: PB. Entrada de servicios médicos. C.C Concepto La Granja.</span>
+              <span>Teléfonos: 0414-414.36.36 / 0241-891.85.84</span>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <span>CNC Los Jarales: PB. Clínica Docente Los Jarales.</span>
+              <span>Teléfonos: 0424-437.30.69</span>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <span>CNC La Isabelica: PB. Laboratorio del Centro Clínico La Isabelica. (Ingresar por la entrada principal y cruzar a la izquierda).</span>
+              <span>Teléfonos: 0424-442.46.08 / 0241-834.94.05</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- * page-1 -->
+    <section id="page-1">
+      <div id="page-1--header">
+        <img src="{% static 'images/logos/logo-header.svg' %}" alt="logo">
+        
+        <span class="hspan" style="--c: #02AA9B; --fs: .95em; --fw: bold">1 de 2</span>
+      </div>
+
+      <div id="page-1--content">
+        <div class="container-pacient">
+          <h2>MARÍA C. PEREZ A.</h2>
+          
+          <div class="container-pacient-stats">
+            <span>45 años</span>
+            
+            <span>12 / 02 / 2023</span>
+            
+            <span>c.i: 12.345.678</span>
+          </div>
+        </div>
+
+        <article class="article-heart">
+          <h3>SALUD DEL CORAZÓN</h3>
+          
+          <div class="container-heart">
+            <div class="column">
+              <p class="focus">El corazón es uno de los órganos más importantes del cuerpo.</p>
+              <p>Tiene el tamaño de nuestro puño y late acerca de 100 mil veces diarias, enviando sangre a través de una extensa red de vasos sanguíneos.</p>
+              <img src="{% static 'images/features/page-1/arrow-heart.svg' %}" alt="arrow-heart">
+            </div>
+            
+            <img src="{% static 'images/features/page-1/heart.svg' %}" alt="heart" class="heart">
+            
+            <div class="column">
+              <img src="{% static 'images/features/page-1/arrow-heart.svg' %}" alt="arrow-heart">
+              <p>Provee oxigeno al cuerpo, removiendo desechos, suministrando energía y respondiendo al sistema inmunológico.</p>
+              <p class="focus">Mantenerlo sano es primordial para nuestra vida.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ? article -->
+        <article class="article-medic">
+          <div class="measurer">
+            <div class="container-measurer">
+              <svg viewBox="0 0 800 400">
+                <!-- ? by default is covering all -->
+                <circle id="first" r="150" cx="50%" cy="50%" style="--color: #FD910A"></circle>
+                <!-- ? min range 470 - max range 0 -->
+                <circle id="middle" r="150" cx="50%" cy="50%" style="--color: #02AA9B; --range: 250"></circle>
+                <circle id="last" r="150" cx="50%" cy="50%" style="--color: #FD910A; --range: 100"></circle>
+              </svg>
+              <!-- ? min rotation -90deg - max rotation 90deg -->
+              <img src="{% static 'images/arrow-measurer.svg' %}" alt="arrow-measurer" class="measurer-amount" style="--rotation: 20deg">
+            </div>
+
+            <span>
+              180
+              <span>mg/dl</span>
+            </span>
+
+            <div class="container-stats">
+              <span>RANGO DE REFERENCIA</span>
+              <div class="divisor"></div>
+              <div>
+                <span>Hasta - Entre</span>
+                <span>125-200 mg/dl</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurer--description">
+            <div class="container-text">
+              <h3>Colesterol Total</h3>
+              <p>
+                Es calculado usando tres tipos de colesterol, HDL, LDL y una parte de triglicéridos.  Es necesario el colesterol en las cantidades correctas, un exceso aumenta el riesgo de desarrollar enfermedades cardiacas o accidentes cerebrovasculares.
+              </p>
+              <p>
+                Un colesterol bajo, puede indicar otro tipo de condiciones de salud.
+              </p>
+            </div>
+
+            <blockquote>
+              <span>Resultado:</span>
+              <span>Tu resultado se encuentra entre los rangos normales de referencia.</span>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ? article -->
+        <article class="article-medic">
+          <div class="measurer">
+            <div class="container-measurer">
+              <svg viewBox="0 0 800 400">
+                <!-- ? by default is covering all -->
+                <circle id="first" r="150" cx="50%" cy="50%" style="--color: #FD910A"></circle>
+                <!-- ? min range 470 - max range 0 -->
+                <circle id="middle" r="150" cx="50%" cy="50%" style="--color: #02AA9B; --range: 320"></circle>
+                <circle id="last" r="150" cx="50%" cy="50%" style="--color: #FD910A; --range: 150"></circle>
+              </svg>
+              <!-- ? min rotation -90deg - max rotation 90deg -->
+              <img src="{% static 'images/arrow-measurer.svg' %}" alt="arrow-measurer" class="measurer-amount" style="--rotation: 90deg">
+            </div>
+
+            <span>
+              76
+              <span>mg/dl</span>
+            </span>
+
+            <div class="container-stats">
+              <span>RANGO DE REFERENCIA</span>
+              <div class="divisor"></div>
+              <div>
+                <span>Mayor a</span>
+                <span>46 mg/dl</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurer--description">
+            <div class="container-text">
+              <h3>HDL (High Density Lipoprotein)</h3>
+              <p>
+                Lipoproteínas de alta densidad en inglés. Conocido como colesterol "bueno" porque transporta el colesterol de otras partes de su cuerpo a su hígado y este lo elimina del cuerpo.  Fumar o ingerir alcohol puede disminuir tu HDL.
+              </p>
+            </div>
+
+            <blockquote>
+              <span>Resultado:</span>
+              <span>Tu resultado está asociado a bajo riesgo coronario.</span>
+            </blockquote>
+          </div>
+        </article>
+      </div>
+
+      <div id="page-1--footer"></div>
+    </section>
+
+
+    <!-- * page-2 -->
+    <section id="page-2">
+      <div id="page-2--header">
+        <img src="{% static 'images/logos/logo-header.svg' %}" alt="logo">
+        
+        <span class="hspan" style="--c: #02AA9B; --fs: .95em; --fw: bold">2 de 2</span>
+      </div>
+
+      <div id="page-2--content">
+        <!-- ? article -->
+        <article class="article-medic">
+          <div class="measurer">
+            <div class="container-measurer">
+              <svg viewBox="0 0 800 400">
+                <!-- ? by default is covering all -->
+                <circle id="first" r="150" cx="50%" cy="50%" style="--color: #FD910A"></circle>
+                <!-- ? min range 470 - max range 0 -->
+                <circle id="middle" r="150" cx="50%" cy="50%" style="--color: #02AA9B; --range: 320"></circle>
+                <circle id="last" r="150" cx="50%" cy="50%" style="--color: #FD910A; --range: 150"></circle>
+              </svg>
+              <!-- ? min rotation -90deg - max rotation 90deg -->
+              <img src="{% static 'images/arrow-measurer.svg' %}" alt="arrow-measurer" class="measurer-amount" style="--rotation: 50deg">
+            </div>
+
+            <span>
+              180
+              <span>mg/dl</span>
+            </span>
+
+            <div class="container-stats">
+              <span>RANGO DE REFERENCIA</span>
+              <div class="divisor"></div>
+              <div>
+                <span>Menor a</span>
+                <span>130 mg/dl</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurer--description">
+            <div class="container-text">
+              <h3>LDL: (Low Density Lipoprotein)</h3>
+              <p>
+                Significa lipoproteínas de baja densidad en inglés. En ocasiones se le llama colesterol "malo" porque un nivel alto de LDL lleva a una acumulación de colesterol en las arterias y está asociado a un mayor riesgo de desarrollar enfermedades del corazón.  El comportamiento del LDL de algunas personas, tiene carácter hereditario. El estilo de vida y algunos medicamentos, también tienen incidencias en los niveles de LDL.
+              </p>
+            </div>
+
+            <blockquote>
+              <span>Resultado:</span>
+              <span>Tu resultado está asociado a bajo riesgo coronario.</span>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ? article -->
+        <article class="article-medic">
+          <div class="measurer">
+            <div class="container-measurer">
+              <svg viewBox="0 0 800 400">
+                <!-- ? by default is covering all -->
+                <circle id="first" r="150" cx="50%" cy="50%" style="--color: #FD910A"></circle>
+                <!-- ? min range 470 - max range 0 -->
+                <circle id="middle" r="150" cx="50%" cy="50%" style="--color: #02AA9B; --range: 400"></circle>
+                <circle id="last" r="150" cx="50%" cy="50%" style="--color: #FD910A; --range: 50"></circle>
+              </svg>
+              <!-- ? min rotation -90deg - max rotation 90deg -->
+              <img src="{% static 'images/arrow-measurer.svg' %}" alt="arrow-measurer" class="measurer-amount" style="--rotation: -60deg">
+            </div>
+
+            <span>
+              180
+              <span>mg/dl</span>
+            </span>
+
+            <div class="container-stats">
+              <span>RANGO DE REFERENCIA</span>
+              <div class="divisor"></div>
+              <div>
+                <span>Menor a</span>
+                <span>30 mg/dl</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurer--description">
+            <div class="container-text">
+              <h3>VLDL: (Very Low Density Lipoprotein)</h3>
+              <p>
+                Lipoproteína de muy baja densidad.  estas proteínas llevan triglicéridos y otro tipo de grasa a sus tejidos.  Un nivel alto de esta lipoproteína puede contribuir a la acumulación de placa en las arterias.
+              </p>
+            </div>
+
+            <blockquote>
+              <span>Resultado:</span>
+              <span>Tu resultado se encuentra entre los rangos normales de referencia.</span>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ? article -->
+        <article class="article-medic">
+          <div class="measurer">
+            <div class="container-measurer">
+              <svg viewBox="0 0 800 400">
+                <!-- ? by default is covering all -->
+                <circle id="first" r="150" cx="50%" cy="50%" style="--color: #FD910A"></circle>
+                <!-- ? min range 470 - max range 0 -->
+                <circle id="middle" r="150" cx="50%" cy="50%" style="--color: #02AA9B; --range: 220"></circle>
+                <circle id="last" r="150" cx="50%" cy="50%" style="--color: #FD910A; --range: 50"></circle>
+              </svg>
+              <!-- ? min rotation -90deg - max rotation 90deg -->
+              <img src="{% static 'images/arrow-measurer.svg' %}" alt="arrow-measurer" class="measurer-amount" style="--rotation: -90deg">
+            </div>
+
+            <span>
+              76
+              <span>mg/dl</span>
+            </span>
+
+            <div class="container-stats">
+              <span>RANGO DE REFERENCIA</span>
+              <div class="divisor"></div>
+              <div>
+                <span>Menor a</span>
+                <span>150 mg/dl</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="measurer--description">
+            <div class="container-text">
+              <h3>Triglicéridos</h3>
+              <p>
+                Son un tipo de grasa que provienen de lo que comemos y de las calorías adicionales que no usamos de manera inmediata.  El cuerpo cambia las calorías en triglicéridos y los libera cuando el cuerpo necesita energía. Los triglicéridos pasan del hígado a otras partes del cuerpo y luego regresan al hígado, donde son eliminados.
+              </p>
+            </div>
+
+            <blockquote>
+              <span>Resultado:</span>
+              <span>Tu resultado está asociado a bajo riesgo coronario.</span>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ? note -->
+        <blockquote class="note">
+          <h3>NOTA</h3>
+
+          <ul>
+            <li>
+              Algunos de los exámenes que pueden orientarnos sobre la salud del corazón se encuentran en los mencionados en este informe. Esta lista es exclusivamente enunciativa, tu médico tratante es quien debe indicar la cantidad de exámenes y evaluaciones que considere necesaria para sus estudios.
+            </li>
+
+            <li>
+              Debes considerar otros factores, como fumar, diabetes, presión arterial, historia familiar y otros exámenes que contribuyan a un diagnóstico general sobre enfermedades coronarias.  Siempre de la mano con la evaluación médica correspondiente.
+            </li>
+          </ul>
+        </blockquote>
+      </div>
+
+      <div id="page-2--footer"></div>
+    </section>
+  </body>
+</html>
+
+

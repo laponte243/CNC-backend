@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import xmltodict, json
 import datetime
+from django.template.loader import get_template
 import os
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
@@ -13,12 +14,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django_filters import rest_framework as filters
 from .serializers import *
 from apicnc import archivos as files
-from apicnc.utils import render_to_pdf
 from django.views.generic import View
 # Create your views here.
-from weasyprint import HTML
+import weasyprint
 from weasyprint.text.fonts import FontConfiguration
 from django.template.loader import render_to_string
+from xhtml2pdf import pisa
 
 @permission_classes([AllowAny])
 class PacienteViewset(viewsets.ModelViewSet):
@@ -44,7 +45,7 @@ class Examen_detalleViewset(viewsets.ModelViewSet):
     queryset = Examen_detalle.objects.all()
     serializer_class = Examen_detalleSerializer
 
-def Convertidos(request):
+def Convertidor(request):
     try:
         for filename in os.listdir('apicnc/archivos'):
             with open('apicnc/archivos/' + filename,'r') as myfile:
@@ -133,12 +134,48 @@ def export_pdf(request,id_paciente):
     examenes = Examen.objects.filter(factura__paciente=paciente).prefetch_related('examen_detalle_set').all()
     
     context = {"paciente":paciente,"examenes":examenes}
-    html = render_to_string("example.html", context)
+    html = render_to_string("template_mail.html", context)
 
     response = HttpResponse(content_type="application/pdf")
     response["Content-Disposition"] = "inline; report.pdf"
 
     font_config = FontConfiguration()
-    HTML(string=html).write_pdf(response, font_config=font_config)
+    weasyprint.HTML(string=html).write_pdf(response, font_config=font_config)
+
+    return response
+
+def testing2(request):
+     # Render the HTML template
+    template = get_template('template_mail.html')
+    html_string = template.render()
+
+    # Generate the PDF using WeasyPrint
+    pdf = weasyprint.HTML(string=html_string).write_pdf()
+
+    # Set the response content type to PDF
+    response = HttpResponse(pdf, content_type='application/pdf')
+
+    # Set the filename and content disposition
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    return response
+
+
+
+def testing22(request):
+    # Obtener el template
+    template = get_template('template_mail.html')
+
+    # Renderizar el template con los datos que necesites
+    context = {'report_data': 'Datos del reporte'}
+    html = template.render(context)
+
+    # Crear un objeto HttpResponse con el PDF generado
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+    # Convertir el HTML a PDF utilizando la librería xhtml2pdf
+    pisa_status = pisa.CreatePDF(html, dest=response)
+    if pisa_status.err:
+        return HttpResponse('Error al generar el PDF: %s' % pisa_status.err)
 
     return response

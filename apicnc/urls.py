@@ -13,7 +13,8 @@ router.register(r'Factura', views.FacturaViewset)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-token-auth/', vx.obtain_auth_token),
-    path('convertidor/', views.Convertidos),
-    path('test/', views.testing),
+    path('convertidor/', views.Convertidor),
+    path('test/', views.testing2),
+    path('test2/', views.testing22),
     path('export/<int:id_paciente>', views.export_pdf, name="export-pdf" )
 ]
