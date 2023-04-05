@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Resultado {% endblock %}
+
+{% block content %}
+
+<main role="main">
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Hola, {{paciente.nombre|title }}!</h1>
+            <p
+            style="color: #00a49e;"
+            >Muchas gracias por realizarte tu estudio con nosotros a continuación tus resultados.</p>
+        </div>
+    </div>
+    <div class="container">
+        {% for x in examenes %}
+            {% if x.resultado == None %}
+                <h3>{{x.descripcion}}</h3>
+            {% else %}
+                <h3>{{ x.descripcion }}:<strong>{{ x.resultado}}</strong> Ref.|{{x.valor_referencia}}|</h3>
+            {% endif %}
+            <p> 
+                {% for a in x.examen_detalle_set.all %}
+                    {{ a.descripcion }}:<strong>{{ a.resultado}}</strong> Ref.|{{a.valor_referencia}}|<br>
+                {% endfor %}
+            </p>
+        {% endfor %}
+    </div>
+</main>
+<footer class="container">
+    <p>&copy; CNC 2023</p>
+</footer>
+{% endblock %}

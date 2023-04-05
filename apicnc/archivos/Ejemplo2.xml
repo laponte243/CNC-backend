@@ -1,0 +1,615 @@
+<infolab xmlns="http://www.infolab.com/schema/1.0/interfaz-infolab">
+  <paciente>
+    <id>213619</id>
+    <nacionalidad>V</nacionalidad>
+    <documento />
+    <cedula>7530616</cedula>
+    <nombre>JONATHAN</nombre>
+    <apellido>DAMASO GALLEGO</apellido>
+    <sexo>M</sexo>
+    <fecha-nacimiento>01/01/1962</fecha-nacimiento>
+    <direccion>SANTA PAULA </direccion>
+    <telefono>2129875587</telefono>
+    <email>jdamasog@yahoo.com</email>
+  </paciente>
+  <orden>
+    <muestra>201912180001</muestra>
+    <historia>20227544</historia>
+    <consulta />
+    <estado-admision />
+    <fecha>18/12/2019</fecha>
+    <hora>02:44:53 p.m.</hora>
+    <stat>R</stat>
+    <tipo />
+    <envpac>S</envpac>
+    <envmed>N</envmed>
+    <medico />
+    <convenio>
+      <id-convenio>1</id-convenio>
+      <desc-convenio>AMBULATORIO</desc-convenio>
+      <direccion />
+      <email />
+      <telefono />
+      <rif />
+      <subconvenio>
+        <id-subconvenio>5</id-subconvenio>
+        <desc-subconvenio>AMB NORMAL</desc-subconvenio>
+      </subconvenio>
+    </convenio>
+  </orden>
+  <factura>
+    <id>419028</id>
+    <llave>13397</llave>
+  </factura>
+  <examen>
+    <seccion>Hematología</seccion>
+    <codigo>1001</codigo>
+    <status>O</status>
+    <descripcion>HEMATOLOGIA COMPLETA</descripcion>
+    <resultado />
+    <unidad />
+    <valreferencia />
+    <observaciones />
+    <examend>
+      <codigo>1002</codigo>
+      <status>O</status>
+      <id_examen>3</id_examen>
+      <descripcion>LEUCOCITOS</descripcion>
+      <resultado>5</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>4,5 - 10,5</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1003</codigo>
+      <status>O</status>
+      <id_examen>39</id_examen>
+      <descripcion>HEMATIES</descripcion>
+      <resultado>5</resultado>
+      <unidad>10^6/uL</unidad>
+      <valreferencia>4,20 - 5,90</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1004</codigo>
+      <status>O</status>
+      <id_examen>1181</id_examen>
+      <descripcion>HEMOGLOBINA</descripcion>
+      <resultado>16</resultado>
+      <unidad>g/dL</unidad>
+      <valreferencia>14,0 - 18,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1005</codigo>
+      <status>O</status>
+      <id_examen>41</id_examen>
+      <descripcion>HEMATOCRITO</descripcion>
+      <resultado>50</resultado>
+      <unidad>%</unidad>
+      <valreferencia>42,0 - 52,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1007</codigo>
+      <status>O</status>
+      <id_examen>47</id_examen>
+      <descripcion>V.C.M.</descripcion>
+      <resultado>100</resultado>
+      <unidad>fL</unidad>
+      <valreferencia>80,0 - 97,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1009</codigo>
+      <status>O</status>
+      <id_examen>45</id_examen>
+      <descripcion>H.C.M.</descripcion>
+      <resultado>32</resultado>
+      <unidad>pg</unidad>
+      <valreferencia>27,0 - 32,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1011</codigo>
+      <status>O</status>
+      <id_examen>46</id_examen>
+      <descripcion>C.H.C.M.</descripcion>
+      <resultado>32</resultado>
+      <unidad>%</unidad>
+      <valreferencia>32,0 - 37,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1015</codigo>
+      <status>O</status>
+      <id_examen>1760</id_examen>
+      <descripcion>FORMULA LEUCOCITARIA</descripcion>
+      <resultado>32</resultado>
+      <unidad />
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1044</codigo>
+      <status>O</status>
+      <id_examen>1840</id_examen>
+      <descripcion>GRANULOCITOS%</descripcion>
+      <resultado>32</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1046</codigo>
+      <status>O</status>
+      <id_examen>48</id_examen>
+      <descripcion>SEGMENTADOS %</descripcion>
+      <resultado>80</resultado>
+      <unidad>%</unidad>
+      <valreferencia>42,0 - 72,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1047</codigo>
+      <status>O</status>
+      <id_examen>49</id_examen>
+      <descripcion>LINFOCITOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia>20,0 - 45,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1048</codigo>
+      <status>O</status>
+      <id_examen>50</id_examen>
+      <descripcion>MONOCITOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia>0,0 - 7,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1050</codigo>
+      <status>O</status>
+      <id_examen>2923</id_examen>
+      <descripcion>MONOCITOS%</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1060</codigo>
+      <status>O</status>
+      <id_examen>51</id_examen>
+      <descripcion>EOSINOFILOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia>0,0 - 5,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1065</codigo>
+      <status>O</status>
+      <id_examen>52</id_examen>
+      <descripcion>BASOFILOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia>0,0 - 1,5</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1070</codigo>
+      <status>O</status>
+      <id_examen>882</id_examen>
+      <descripcion>CAYADOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1076</codigo>
+      <status>O</status>
+      <id_examen>1183</id_examen>
+      <descripcion>METAMIELOCITOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1078</codigo>
+      <status>O</status>
+      <id_examen>1334</id_examen>
+      <descripcion>PROMIELOCITOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1080</codigo>
+      <status>O</status>
+      <id_examen>1336</id_examen>
+      <descripcion>MIELOCITOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1082</codigo>
+      <status>O</status>
+      <id_examen>1185</id_examen>
+      <descripcion>MONOCITOS ATIPICOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia>0,0 - 7,0</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1084</codigo>
+      <status>O</status>
+      <id_examen>1187</id_examen>
+      <descripcion>LINFOCITOS ATIPICOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1086</codigo>
+      <status>O</status>
+      <id_examen>1189</id_examen>
+      <descripcion>RBC NUCLEADOS %</descripcion>
+      <resultado>20</resultado>
+      <unidad>%</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1088</codigo>
+      <status>O</status>
+      <id_examen>53</id_examen>
+      <descripcion>SEGMENTADOS #</descripcion>
+      <resultado>4</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>2,2 - 4,8</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1089</codigo>
+      <status>O</status>
+      <id_examen>1841</id_examen>
+      <descripcion>GRANULOCITOS#</descripcion>
+      <resultado>4</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1090</codigo>
+      <status>O</status>
+      <id_examen>54</id_examen>
+      <descripcion>LINFOCITOS #</descripcion>
+      <resultado>1</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>1,3 - 2,9</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1112</codigo>
+      <status>O</status>
+      <id_examen>55</id_examen>
+      <descripcion>MONOCITOS #</descripcion>
+      <resultado>1</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>0,3 - 0,8</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1113</codigo>
+      <status>O</status>
+      <id_examen>2924</id_examen>
+      <descripcion>MONOCITOS#</descripcion>
+      <resultado>1</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1114</codigo>
+      <status>O</status>
+      <id_examen>57</id_examen>
+      <descripcion>BASOFILOS #</descripcion>
+      <resultado>1</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1115</codigo>
+      <status>O</status>
+      <id_examen>56</id_examen>
+      <descripcion>EOSINOFILOS #</descripcion>
+      <resultado>1</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>0,0 - 0,2</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1116</codigo>
+      <status>O</status>
+      <id_examen>42</id_examen>
+      <descripcion>PLAQUETAS</descripcion>
+      <resultado>200</resultado>
+      <unidad>10^3/uL</unidad>
+      <valreferencia>165 - 365</valreferencia>
+    </examend>
+    <examend>
+      <codigo>1118</codigo>
+      <status>O</status>
+      <id_examen>44</id_examen>
+      <descripcion>V.P.M</descripcion>
+      <resultado>87</resultado>
+      <unidad>fL</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>1120</codigo>
+      <status>O</status>
+      <id_examen>1191</id_examen>
+      <descripcion>OBSERVACIONES</descripcion>
+      <resultado>87</resultado>
+      <unidad />
+      <valreferencia> - </valreferencia>
+    </examend>
+    <examend>
+      <codigo>10140</codigo>
+      <status>O</status>
+      <id_examen>1180</id_examen>
+      <descripcion>WBC CORREGIDO</descripcion>
+      <resultado>87</resultado>
+      <unidad>x 10^3/uL</unidad>
+      <valreferencia> - </valreferencia>
+    </examend>
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>17</id_examen>
+    <codigo>3047</codigo>
+    <status>O</status>
+    <descripcion>BILIRRUBINA INDIRECTA</descripcion>
+    <resultado>0,90</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>0,20 - 0,80</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>438</id_examen>
+    <codigo>3045</codigo>
+    <status>O</status>
+    <descripcion>BILIRRUBINA DIRECTA</descripcion>
+    <resultado>0,10</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>0,00 - 0,36</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>440</id_examen>
+    <codigo>3043</codigo>
+    <status>O</status>
+    <descripcion>BILIRRUBINA TOTAL</descripcion>
+    <resultado>1,00</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>0,00 - 1,50</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>58</id_examen>
+    <codigo>3025</codigo>
+    <status>O</status>
+    <descripcion>ACIDO URICO</descripcion>
+    <resultado>5,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>3,6 - 6,5</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>126</id_examen>
+    <codigo>3021</codigo>
+    <status>O</status>
+    <descripcion>CALCIO</descripcion>
+    <resultado>9,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>8,2 - 10,2</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>279</id_examen>
+    <codigo>3035</codigo>
+    <status>O</status>
+    <descripcion>ALBUMINA</descripcion>
+    <resultado>5,0</resultado>
+    <unidad>g/dL</unidad>
+    <valreferencia>3,4 - 5,3</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>303</id_examen>
+    <codigo>3037</codigo>
+    <status>O</status>
+    <descripcion>GLOBULINAS</descripcion>
+    <resultado>2,0</resultado>
+    <unidad>g/dL</unidad>
+    <valreferencia>2,0 - 3,8</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>304</id_examen>
+    <codigo>3039</codigo>
+    <status>O</status>
+    <descripcion>RELACION A/G</descripcion>
+    <resultado>2,5</resultado>
+    <unidad />
+    <valreferencia>0,9 - 2,1</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>808</id_examen>
+    <codigo>3033</codigo>
+    <status>O</status>
+    <descripcion>PROTEINAS  TOTALES</descripcion>
+    <resultado>7,00</resultado>
+    <unidad>g/dL</unidad>
+    <valreferencia>6,40 - 8,20</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>203</id_examen>
+    <codigo>3029</codigo>
+    <status>O</status>
+    <descripcion>TRANSAMINASA PIRUVICA (ALT)</descripcion>
+    <resultado>30,0</resultado>
+    <unidad>UI/L</unidad>
+    <valreferencia>0,0 - 42,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>217</id_examen>
+    <codigo>3005</codigo>
+    <status>O</status>
+    <descripcion>CREATININA</descripcion>
+    <resultado>1,00</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>0,50 - 1,30</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>251</id_examen>
+    <codigo>2063</codigo>
+    <status>O</status>
+    <descripcion>GLICEMIA</descripcion>
+    <resultado>85,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>70,0 - 110,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>256</id_examen>
+    <codigo>3027</codigo>
+    <status>O</status>
+    <descripcion>TRANSAMINASA OXALACETICA (AST)</descripcion>
+    <resultado>15,0</resultado>
+    <unidad>UI/L</unidad>
+    <valreferencia>0,0 - 40,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Serología</seccion>
+    <id_examen>871</id_examen>
+    <codigo>4001</codigo>
+    <status>O</status>
+    <descripcion>VDRL</descripcion>
+    <resultado>NO REACTIVO</resultado>
+    <unidad />
+    <valreferencia> - </valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>1901</id_examen>
+    <codigo>3023</codigo>
+    <status>O</status>
+    <descripcion>FOSFORO</descripcion>
+    <resultado>4,00</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>1,50 - 6,80</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>2076</id_examen>
+    <codigo>3003</codigo>
+    <status>O</status>
+    <descripcion>UREA</descripcion>
+    <resultado>25,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>15,0 - 45,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>85</id_examen>
+    <codigo>3009</codigo>
+    <status>O</status>
+    <descripcion>TRIGLICERIDOS</descripcion>
+    <resultado>58,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>35,0 - 165,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>209</id_examen>
+    <codigo>3007</codigo>
+    <status>O</status>
+    <descripcion>COLESTEROL</descripcion>
+    <resultado>187,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>120,0 - 220,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>211</id_examen>
+    <codigo>3014</codigo>
+    <status>O</status>
+    <descripcion>LDL COLESTEROL</descripcion>
+    <resultado>173,4</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>22,0 - 130,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>212</id_examen>
+    <codigo>3015</codigo>
+    <status>O</status>
+    <descripcion>VLDL COLESTEROL</descripcion>
+    <resultado>11,6</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>0,0 - 30,0</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>258</id_examen>
+    <codigo>3019</codigo>
+    <status>O</status>
+    <descripcion>LIPIDOS TOTALES</descripcion>
+    <resultado>526</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>400 - 800</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>2793</id_examen>
+    <codigo>3020</codigo>
+    <status>O</status>
+    <descripcion>INDICE ATEROGENICO DEL PLASMA (AIP)</descripcion>
+    <resultado>1,102</resultado>
+    <unidad>INDEX</unidad>
+    <valreferencia>0,000 - 0,000</valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>2926</id_examen>
+    <codigo>3012</codigo>
+    <status>O</status>
+    <descripcion>HDLI</descripcion>
+    <resultado>1</resultado>
+    <unidad />
+    <valreferencia> - </valreferencia>
+    <observaciones />
+  </examen>
+  <examen>
+    <seccion>Química</seccion>
+    <id_examen>2927</id_examen>
+    <codigo>3013</codigo>
+    <status>O</status>
+    <descripcion>HDL-COLESTEROL</descripcion>
+    <resultado>2,0</resultado>
+    <unidad>mg/dL</unidad>
+    <valreferencia>26,0 - 63,0</valreferencia>
+    <observaciones />
+  </examen>
+</infolab>
